@@ -14,7 +14,9 @@ Requirements
 How to use
 ----------
 
-Click, drag, or hit left or right cursor keys.
+Pass a graphic file via commandline, drop a graphic file to the exe, or associate graphic files' extensions to the exe.
+
+Click, drag, roll the mouse wheel, or hit left or right cursor keys.
 
 
 License
