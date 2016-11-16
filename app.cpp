@@ -115,7 +115,7 @@ Application::LoadImage()
     HRESULT hr = S_OK;
 
     if (m_pImageFile) {
-        IWICBitmapDecoder* decoder;
+        IWICBitmapDecoder* decoder = 0;
         hr = m_pImagingFactory->CreateDecoderFromFilename(m_pImageFile, 0, GENERIC_READ, WICDecodeMetadataCacheOnLoad, &decoder);
         if (SUCCEEDED(hr)) {
             SafeRelease(&m_pFrame);
