@@ -28,18 +28,19 @@ int WINAPI
 WinMain(HINSTANCE hInst, HINSTANCE /* hPrevInstance */, LPSTR /* lpCmdLine */, int nCmdShow)
 {
     if (SUCCEEDED(CoInitialize(0))) {
-        Application app;
-        if (SUCCEEDED(app.Initialize(hInst, nCmdShow))) {
+        Application* app = new Application();
+        if (SUCCEEDED(app->Initialize(hInst, nCmdShow))) {
             int num;
             LPWSTR* args = CommandLineToArgvW(GetCommandLine(), &num);
             if (args) {
                 if (num > 1) {
-                    app.SetImageFile(args[1]);
+                    app->SetImageFile(args[1]);
                 }
             }
-            app.RunMessageLoop();
+            app->RunMessageLoop();
             LocalFree(args);
         }
+        delete app;
 
         CoUninitialize();
     }
